@@ -1,7 +1,9 @@
 package main
+
 import (
 	"fmt"
 	"net"
+	"strings"
 )
 
 func main() {
@@ -20,9 +22,10 @@ func main() {
 			conn.Close()
 			continue
 		}
-		go handleConnection(conn)  // запускаем горутину для обработки запроса
+		go handleConnection(conn) // запускаем горутину для обработки запроса
 	}
 }
+
 // обработка подключения
 func handleConnection(conn net.Conn) {
 	defer conn.Close()
@@ -35,11 +38,13 @@ func handleConnection(conn net.Conn) {
 			break
 		}
 
-		fmt.Println(input)
+		// Данные приняты (переменная input), обработка запроса
+		// inp[1] - имя ПК, inp[2] - ip адрес
 
-
+		inp := strings.Split(string(input), ",")
+		// обработка данных из среза inp должна быть
 
 		// отправляем данные клиенту
-		conn.Write([]byte()
+		//		conn.Write([]byte())
 	}
 }
