@@ -42,9 +42,11 @@ func handleConnection(conn net.Conn) {
 		// inp[1] - имя ПК, inp[2] - ip адрес
 
 		inp := strings.Split(string(input), ",")
-		// обработка данных из среза inp должна быть
+		fmt.Println(inp)
+
+		answer := "information saved"
 
 		// отправляем данные клиенту
-		//		conn.Write([]byte())
+		conn.Write([]byte(answer))
 	}
 }
